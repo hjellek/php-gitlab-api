@@ -143,6 +143,14 @@ class Client
     }
 
     /**
+     * @return Api\GroupIssues
+     */
+    public function groupIssues()
+    {
+        return new Api\GroupIssues($this);
+    }
+
+    /**
      * @return Api\Issues
      */
     public function issues()
@@ -181,6 +189,14 @@ class Client
     public function jobs()
     {
         return new Api\Jobs($this);
+    }
+
+    /**
+     * @return Api\MergeRequests
+     */
+    public function groupMergeRequests()
+    {
+        return new Api\GroupMergeRequests($this);
     }
 
     /**
@@ -318,9 +334,12 @@ class Client
 
             case 'groups':
                 return $this->groups();
-                
+
             case 'groupsMilestones':
                 return $this->groupsMilestones();
+
+            case 'group_issues':
+                return $this->groupIssues();
 
             case 'issues':
                 return $this->issues();
@@ -337,6 +356,9 @@ class Client
 
             case 'jobs':
                 return $this->jobs();
+
+            case 'group_merge_requests':
+                return $this->groupMergeRequests();
 
             case 'mr':
             case 'merge_requests':
