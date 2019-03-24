@@ -44,6 +44,9 @@ class GroupIssues extends AbstractApi
             ->setAllowedValues('sort', ['asc', 'desc'])
         ;
         $resolver->setDefined('search');
+        $resolver->setDefined('assignee_id')
+            ->setAllowedTypes('assignee_id', 'integer')
+        ;
 
         $path = $group_id === null ? 'issues' : $this->getGroupPath($group_id, 'issues');
 
